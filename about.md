@@ -1,3 +1,4 @@
+
 # About BetterSave
 
 **BetterSave** is a comprehensive cloud save management system for Geometry Dash, created by **sidastuff**.
@@ -88,36 +89,9 @@ Firebase Realtime Database:
 - Easy-to-read logs viewer popup
 - Persistent storage for debugging
 
----
-
-## 🛡️ Safety Features
-
-BetterSave includes multiple layers of protection:
-
-- ✅ **Window Locking**: Can't close during critical operations
-- ✅ **Automatic Backups**: Local backups created before downloads
-- ✅ **Error Recovery**: All error paths properly handled
-- ✅ **Data Validation**: Files verified before upload/download
-- ✅ **Safe Restart**: Uses Geode's crash-safe restart function
-- ✅ **Comprehensive Logging**: Every action is logged for transparency
 
 ---
 
-## 📈 Version History
-
-### v1.0.0 (Current)
-- ✅ Firebase Authentication (login/signup)
-- ✅ Cloud save upload with parallel chunking
-- ✅ Cloud save download with automatic game restart
-- ✅ Persistent login with local credential storage
-- ✅ Built-in logging system with viewer
-- ✅ Progress tracking popup
-- ✅ Hex encoding for binary data
-- ✅ Comprehensive error handling
-- ✅ Cross-device synchronization
-- ✅ Safe window management
-
----
 
 ## 🌟 Why BetterSave?
 
@@ -136,16 +110,7 @@ BetterSave provides:
 - ✅ Safe, encrypted cloud storage via Firebase
 - ✅ Complete transparency with activity logs
 
----
 
-## 🎮 Supported Platforms
-
-- ✅ **Windows** (Primary platform)
-- ✅ **Mac** (Planned - Firebase ready, needs testing)
-
-Current version is fully tested on Windows. Other platforms use the same Firebase backend but may need minor adjustments for file system paths.
-
----
 
 ## 📜 License & Credits
 

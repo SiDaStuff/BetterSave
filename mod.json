@@ -8,7 +8,7 @@
 	},
 	"id": "sidastuff.bettersave",
 	"name": "BetterSave",
-	"version": "v1.0.0",
+	"version": "v1.1.0",
 	"developer": "sidastuff",
 	"tags": ["online", "utility", "interface", "content", "api", "developer"],
 	"description": "Cloud save manager by sidastuff - Backup, restore, and sync your GD saves with Firebase cloud storage",
