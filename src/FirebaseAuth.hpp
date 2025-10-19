@@ -7,7 +7,7 @@ using namespace geode::prelude;
 
 class FirebaseAuth {
 private:
-    static constexpr const char* API_KEY = "AIzaSyCFnB6TzHIySepudFmNeUs4i8p909X-5Iw";
+    static constexpr const char* API_KEY = "placeholder";
     static constexpr const char* AUTH_DOMAIN = "gdbettersave.firebaseapp.com";
     static constexpr const char* PROJECT_ID = "gdbettersave";
     
