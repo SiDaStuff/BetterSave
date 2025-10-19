@@ -1,0 +1,85 @@
+{
+  "rules": {
+    "banned": {
+      // Admin can read/write banned list
+      ".read": "auth != null && auth.uid == 'SOpCkBJd8vWqxHRyhl8MimrLWc52'",
+      ".write": "auth != null && auth.uid == 'SOpCkBJd8vWqxHRyhl8MimrLWc52'",
+      
+      "$emailKey": {
+        ".validate": "newData.hasChildren(['email', 'bannedAt', 'bannedBy'])"
+      }
+    },
+    
+    "userEmails": {
+      // Map emails to userIds for admin lookups
+      ".read": "auth != null && auth.uid == 'SOpCkBJd8vWqxHRyhl8MimrLWc52'",
+      "$emailKey": {
+        ".write": "auth != null"
+      }
+    },
+    
+    "users": {
+      "$userId": {
+        // Only allow authenticated users to access their own data
+        // Admin can read any user's data
+        ".read": "auth != null && (auth.uid == $userId || auth.uid == 'SOpCkBJd8vWqxHRyhl8MimrLWc52')",
+        // Users can write their own data (ban check done client-side)
+        ".write": "auth != null && auth.uid == $userId",
+        
+        "saveData": {
+          // Validate saveData structure
+          ".validate": "newData.hasChildren(['gmChunks', 'llChunks', 'timestamp'])",
+          
+          "gmChunks": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1000"
+          },
+          "llChunks": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1000"
+          },
+          "timestamp": {
+            ".validate": "newData.isNumber() && newData.val() > 0"
+          },
+          "deviceInfo": {
+            // Optional field for device tracking
+            ".validate": "newData.isString() && newData.val().length < 256"
+          },
+          // Prevent any other fields in saveData
+          "$other": {
+            ".validate": false
+          }
+        },
+        
+        "chunks": {
+          // Validate chunk naming pattern (gm0, gm1, ll0, ll1, etc.)
+          "$chunkId": {
+            ".validate": "newData.hasChildren(['d']) && $chunkId.matches(/^(gm|ll)[0-9]{1,4}$/)",
+            
+            "d": {
+              // Chunk data must be a string (hex-encoded)
+              // Max size: ~250KB per chunk (allows for 200KB data + hex overhead)
+              ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 500000"
+            },
+            
+            // Prevent any other fields in chunks
+            "$other": {
+              ".validate": false
+            }
+          }
+        },
+        
+        // Prevent any other top-level fields under user
+        "$other": {
+          ".validate": false
+        }
+      }
+    },
+    
+    // Deny access to any other paths
+    "$other": {
+      ".read": false,
+      ".write": false,
+      ".validate": false
+    }
+  }
+}
+

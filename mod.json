@@ -1,0 +1,23 @@
+{
+	"geode": "4.9.0",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "sidastuff.bettersave",
+	"name": "BetterSave",
+	"version": "v1.0.0",
+	"developer": "sidastuff",
+	"tags": ["online", "utility", "interface", "content", "api", "developer"],
+	"description": "Cloud save manager by sidastuff - Backup, restore, and sync your GD saves with Firebase cloud storage",
+	"links": {
+		"github": "https://github.com/sidastuff/BetterSave",
+		"homepage": "https://github.com/sidastuff/BetterSave"
+	},
+	"credits": "Created by sidastuff | Special thanks to Geode SDK Team and Firebase",
+	"dependencies": {
+		"geode.node-ids": ">=v1.20.0"
+	}
+}
